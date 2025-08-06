@@ -13,4 +13,8 @@ spec:
       paths:
       - path: /
         pathType: Prefix
-        backend: {service: {name: portfolio-svc, port: {number: 80}}}
+        backend:
+          service:
+            name: portfolio-svc
+            port:
+              number: 80
