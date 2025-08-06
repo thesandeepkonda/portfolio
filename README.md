@@ -18,3 +18,40 @@ Visit: http://localhost:8080
 1. Configure email settings in application.properties
 2. Run the application
 3. Access at localhost:8080
+
+
+portfolio/                           ← Root of your repository
+├── .gitignore
+├── Dockerfile
+├── Jenkinsfile
+├── README.md
+├── pom.xml
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── sandeepkonda/
+│       │           └── portfolio/
+│       │               ├── PortfolioApplication.java
+│       │               ├── controller/
+│       │               │   └── HomeController.java
+│       │               ├── model/
+│       │               │   └── Contact.java
+│       │               └── service/
+│       │                   └── EmailService.java
+│       └── resources/
+│           ├── application.properties
+│           ├── templates/
+│           │   └── index.html
+│           └── static/
+│               ├── css/
+│               │   └── style.css
+│               └── js/
+│                   └── main.js
+├── k8s/                             ← Kubernetes manifests
+│   ├── namespace.yaml
+│   ├── email-secret.yaml
+│   ├── deployment.yaml
+│   └── ingress.yaml
+└── argocd/                          ← Argo CD Application
+    └── portfolio-app.yaml
