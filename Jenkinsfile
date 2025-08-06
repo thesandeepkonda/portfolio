@@ -1,8 +1,8 @@
 pipeline {
   agent any
   environment {
-    AWS_REGION    = '<AWS_REGION>'
-    AWS_ACCOUNT_ID= '<AWS_ACCOUNT_ID>'
+    AWS_REGION    = 'ap-south-1'
+    AWS_ACCOUNT_ID= '809317209874'
     ECR_REPO      = 'portfolio'
     ECR_URI       = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
     IMAGE_TAG     = "${env.BUILD_NUMBER}"
