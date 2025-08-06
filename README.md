@@ -53,5 +53,6 @@ portfolio/                           ← Root of your repository
 │   ├── email-secret.yaml
 │   ├── deployment.yaml
 │   └── ingress.yaml
-└── argocd/                          ← Argo CD Application
+└── argocd/                          ← Argo CD Applicatio
+
     └── portfolio-app.yaml
