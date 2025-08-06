@@ -6,23 +6,31 @@ metadata:
 spec:
   replicas: 2
   selector:
-    matchLabels: {app: portfolio}
+    matchLabels:
+      app: portfolio
   template:
-    metadata: {labels: {app: portfolio}}
+    metadata:
+      labels:
+        app: portfolio
     spec:
       containers:
       - name: portfolio
-        image: <AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/portfolio:latest
-        ports: [{containerPort: 8080}]
+        image: 809317209874.dkr.ecr.ap-south-1.amazonaws.com/portfolio:latest
+        ports:
+        - containerPort: 8080
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
         - name: EMAIL_USERNAME
           valueFrom:
-            secretKeyRef: {name: portfolio-email, key: username}
+            secretKeyRef:
+              name: portfolio-email
+              key: username
         - name: EMAIL_PASSWORD
           valueFrom:
-            secretKeyRef: {name: portfolio-email, key: password}
+            secretKeyRef:
+              name: portfolio-email
+              key: password
 ---
 apiVersion: v1
 kind: Service
@@ -31,5 +39,8 @@ metadata:
   namespace: portfolio
 spec:
   type: ClusterIP
-  selector: {app: portfolio}
-  ports: [{port: 80, targetPort: 8080}]
+  selector:
+    app: portfolio
+  ports:
+  - port: 80
+    targetPort: 8080
